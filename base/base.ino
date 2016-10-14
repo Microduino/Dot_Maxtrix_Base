@@ -118,10 +118,10 @@ void setup() {
   //clearColor
   display.clearColor();
   //writeString H
-  display.writeString("Microduino", MODE_H, 20, 0); //string, MODE, time ,y
+  display.writeString("Microduino", 20, 0); //string, MODE, time ,y
   display.clearDisplay();
   //writeString V
-  display.writeString("Microduino", MODE_V, 20, 0); //string, MODE, time ,x
+  display.writeString("Microduino", 20, 0); //string, MODE, time ,x
   display.clearDisplay();
 }
 
@@ -159,7 +159,6 @@ void loop() {
 
   i = display.getStringWidth("mCookie!");
   display.setColor(255, 255, 0);
-  display.setFontMode(MODE_H);
   for (int a = display.getWidth() * 8; a > -i - display.getWidth() * 8; a--) {
     display.setCursor(a, 0);   //x, y
     display.print("mCookie!");
@@ -169,7 +168,6 @@ void loop() {
 
   i = display.getStringHeight("mCookie!");
   display.setColor(255, 0, 255);
-  display.setFontMode(MODE_V);
   for (int a = display.getHeight() * 8; a > -i - display.getHeight() * 8; a--) {
     display.setCursor(0, a);   //x, y
     display.print("mCookie!");
@@ -180,7 +178,7 @@ void loop() {
   //Print
   unsigned long timer = millis();
   display.setColor(0, 255, 255);
-  display.setFontMode(MODE_H);
+
   while (millis() - timer < 5000) {
     display.setCursor(0, 0);   //x, y
     display.print((millis() - timer) / 100);
@@ -203,5 +201,5 @@ void loop() {
 
   display.setColor(255, 255, 255);
   display.clearDisplay();
-  display.writeString(buffer_data, MODE_H, 50, 1);
+  display.writeString(buffer_data, 50, 1);
 }
